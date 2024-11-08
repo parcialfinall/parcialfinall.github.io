@@ -1,22 +1,27 @@
-/* Misma configuración de estilo del código anterior */
+/* Estilos generales */
 body {
   font-family: Arial, sans-serif;
+  background-color: #000; /* Fondo de la página en negro */
+  color: #fff; /* Color de texto en blanco por defecto */
 }
 
+/* Contenedor principal */
 .container {
   width: 300px;
   margin: auto;
   padding: 20px;
-  border: 1px solid #ddd;
+  border: 1px solid #333; /* Borde gris oscuro */
   border-radius: 5px;
   text-align: center;
   margin-top: 50px;
 }
 
+/* Títulos */
 h1, h2, h3 {
-  color: #333;
+  color: #fff; /* Títulos en blanco */
 }
 
+/* Formularios y elementos de entrada */
 .form {
   margin-top: 20px;
 }
@@ -26,37 +31,58 @@ input, select {
   padding: 8px;
   font-size: 16px;
   width: 100%;
+  background-color: #333; /* Fondo oscuro en los campos de entrada */
+  color: #fff; /* Texto blanco en los campos */
+  border: 1px solid #444; /* Borde gris oscuro */
 }
 
+/* Botones */
 button {
   padding: 10px;
-  background-color: #4CAF50;
   color: white;
   border: none;
   cursor: pointer;
   width: 100%;
 }
 
-button:hover {
-  background-color: #45a049;
+/* Estilo de botón de registro e inicio de sesión */
+#registerForm button, #loginForm button {
+  background-color: #007bff; /* Azul para botones de registro e inicio de sesión */
 }
 
+#registerForm button:hover, #loginForm button:hover {
+  background-color: #0056b3; /* Azul más oscuro al pasar el cursor */
+}
+
+/* Estilo general de otros botones (si es necesario) */
+button:not(#registerForm button):not(#loginForm button) {
+  background-color: #4CAF50; /* Verde para otros botones */
+}
+
+button:not(#registerForm button):not(#loginForm button):hover {
+  background-color: #45a049; /* Verde oscuro para otros botones */
+}
+
+/* Mensajes de éxito */
 .success {
   color: green;
   font-size: 14px;
   margin-top: 10px;
 }
+
+/* Estilo de productos */
 .product {
-  border: 1px solid #ddd;
+  border: 1px solid #444; /* Borde gris oscuro */
   border-radius: 5px;
   padding: 10px;
   margin-bottom: 10px;
-  text-align: center; /* Centrar el contenido del producto */
+  text-align: center;
+  background-color: #222; /* Fondo oscuro para los productos */
 }
 
 .product-image {
-  width: 100%; /* Ajustar la imagen al tamaño del contenedor */
-  max-width: 150px; /* Tamaño máximo de la imagen */
+  width: 100%;
+  max-width: 150px;
   height: auto;
   margin-bottom: 10px;
 }
@@ -64,8 +90,10 @@ button:hover {
 .product h3 {
   margin: 10px 0 5px;
   font-size: 18px;
+  color: #fff; /* Títulos de productos en blanco */
 }
 
+/* Estilo del carrito */
 #cart {
   list-style-type: none;
   padding: 0;
