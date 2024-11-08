@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gestión de Usuarios y Ventas</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Gestión de Usuarios</h1>
+
+    <div id="registerForm" class="form">
+      <h2>Registro</h2>
+      <input type="text" id="registerUsername" placeholder="Usuario" required>
+      <input type="password" id="registerPassword" placeholder="Contraseña" required>
+      <select id="registerRole">
+        <option value="user">Usuario</option>
+        <option value="admin">Administrador</option>
+      </select>
+      <button onclick="register()">Registrarse</button>
+      <p id="registerSuccess" class="success" style="display: none;">Registro exitoso. Ahora puedes iniciar sesión.</p>
+    </div>
+
+    <div id="loginForm" class="form">
+      <h2>Iniciar Sesión</h2>
+      <input type="text" id="loginUsername" placeholder="Usuario" required>
+      <input type="password" id="loginPassword" placeholder="Contraseña" required>
+      <button onclick="login()">Iniciar Sesión</button>
+      <p id="loginSuccess" class="success" style="display: none;">Inicio de sesión exitoso.</p>
+    </div>
+
+    <div id="profileSection" class="form" style="display: none;">
+      <h2>Bienvenido, <span id="usernameDisplay"></span></h2>
+      <button onclick="logout()">Cerrar Sesión</button>
+      
+      <h3>Administrar Perfil</h3>
+      <input type="text" id="updateUsername" placeholder="Editar nombre de usuario" required>
+      <button onclick="updateProfile()">Actualizar Perfil</button>
+      <p id="profileUpdated" class="success" style="display: none;">Perfil actualizado con éxito.</p>
+
+      <div id="adminSection" style="display: none;">
+        <h3>Gestión de la Página (Administrador)</h3>
+        <p>Aquí puedes gestionar la página web.</p>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Sección de Ventas -->
+  <div id="salesSection" class="form" style="display: none;">
+    <h2>Catálogo de Chaquetas Básicas</h2>
+    
+    <div class="product" data-name="Beisbolera Roja" data-price="50" data-quantity="10">
+        <img src="img/Chaqueta6.png" alt="Beisbolera Roja" class="product-image">
+        <h3>Chaqueta Beisbolera Roja</h3>
+        <p>Precio: $<span class="price">50</span></p>
+        <p>Disponible: <span class="quantity">10</span> unidades</p>
+        <button onclick="addToCart('Beisbolera Roja', 50)">Añadir al Carrito</button>
+
+        <!-- Controles de inventario solo para el administrador -->
+        <div class="admin-controls" style="display: none;">
+            <h4>Actualizar Inventario</h4>
+            <label>Nuevo Precio:</label>
+            <input type="number" min="0" class="new-price" placeholder="Precio">
+            <label>Nueva Cantidad:</label>
+            <input type="number" min="0" class="new-quantity" placeholder="Cantidad">
+            <button onclick="updateInventory('Beisbolera Roja')">Actualizar</button>
+        </div>
+    </div>
+
+    <div class="product" data-name="Corazones Rosada" data-price="55" data-quantity="8">
+        <img src="img/Chaqueta7.png" alt="Corazones Rosada" class="product-image">
+        <h3>Corazones Rosada</h3>
+        <p>Precio: $<span class="price">55</span></p>
+        <p>Disponible: <span class="quantity">8</span> unidades</p>
+        <button onclick="addToCart('Corazones Rosada', 55)">Añadir al Carrito</button>
+
+        <div class="admin-controls" style="display: none;">
+            <h4>Actualizar Inventario</h4>
+            <label>Nuevo Precio:</label>
+            <input type="number" min="0" class="new-price" placeholder="Precio">
+            <label>Nueva Cantidad:</label>
+            <input type="number" min="0" class="new-quantity" placeholder="Cantidad">
+            <button onclick="updateInventory('Corazones Rosada')">Actualizar</button>
+        </div>
+    </div>
+
+    <div class="product" data-name="Chaqueta Top Gun" data-price="60" data-quantity="5">
+        <img src="img/Chaqueta8.png" alt="Chaqueta Top Gun" class="product-image">
+        <h3>Chaqueta Top Gun</h3>
+        <p>Precio: $<span class="price">60</span></p>
+        <p>Disponible: <span class="quantity">5</span> unidades</p>
+        <button onclick="addToCart('Chaqueta Top Gun', 60)">Añadir al Carrito</button>
+
+        <div class="admin-controls" style="display: none;">
+            <h4>Actualizar Inventario</h4>
+            <label>Nuevo Precio:</label>
+            <input type="number" min="0" class="new-price" placeholder="Precio">
+            <label>Nueva Cantidad:</label>
+            <input type="number" min="0" class="new-quantity" placeholder="Cantidad">
+            <button onclick="updateInventory('Chaqueta Top Gun')">Actualizar</button>
+        </div>
+    </div>
+    
+    <h3>Carrito de Compras</h3>
+      <ul id="cart"></ul>
+      <p id="total" style="font-weight: bold;">Total: $0</p>
+      <!-- Botón Comprar -->
+      <button id="buyButton" onclick="completePurchase()">Comprar</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
